@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+plan.md
+tests/
+.env
+*.pyc
+*.pyo
+*.pyd 
+pytest.ini
+.roo/
+.roomodes
