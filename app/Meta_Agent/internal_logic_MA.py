@@ -335,12 +335,11 @@ async def MetaAgent_workflow(graph_ctx: GraphRunContext) -> GraphRunContext:
     user_prompt = await update_meta_agent_user_prompt(graph_ctx) ### this function transforms the list of Chatmessage classes to a usable string
 
     ##### prepare system prompt with user info 
-    dynamic_system_message = [ModelRequest(parts=[SystemPromptPart(content=f"{static_system_prompt()}\n\n{await add_the_users_info(graph_ctx)}\n\n{add_the_date()}")])]
+    dynamic_system_message = f"{static_system_prompt()}\n\n{await add_the_users_info(graph_ctx)}\n\n{add_the_date()}"
 
     # append the user - Frits conversation history to the message history list
     message_history = []
     
-    message_history.append(dynamic_system_message)
 
     if graph_ctx.deps.conversation_history:
         # Optionally, sort by creation time if order matters
@@ -363,7 +362,7 @@ async def MetaAgent_workflow(graph_ctx: GraphRunContext) -> GraphRunContext:
 
 
     # RUN THE META-AGENT USING THE GENERATED INPUT
-    llm_response = await Meta_agent.run(user_prompt=user_prompt, message_history=message_history)
+    llm_response = await Meta_agent.run(user_prompt=dynamic_system_message + user_prompt, message_history=message_history)
 
 
     ##### SAVE ALL THE INFO OF THE RUN INSTANCE
