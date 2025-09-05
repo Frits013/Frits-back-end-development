@@ -2,13 +2,11 @@
 import logging
 from datetime import datetime, timezone
 import threading
-from pydantic_ai import Agent
 from pydantic_ai.messages import (
     ModelRequest,
     ModelResponse,
     UserPromptPart,
     TextPart,
-    SystemPromptPart,
 )
 from pydantic_graph import GraphRunContext
 from ..classes import MultiAgentDeps, MultiAgentState, ChatMessage  # Import Fritsdeps from classes
@@ -25,7 +23,7 @@ logging.debug("Current thread: %s", threading.current_thread().name)
 ##################### STATIC & DYNAMIC SYSTEM PROMPTS #####################
 ###########################################################################
 
-def static_system_prompt() -> str:
+def system_prompt() -> str:
     return (f"""
 
 **GOAL**
@@ -33,24 +31,22 @@ You are the Meta-Agent, responsible for analyzing interviews about a specific to
 This AI agent will take this interview context to make a decision on what the next step of this interview would be. 
 You will have 
 
-1. *system knowledge* to understand what you have to do e.g. interview structure, task explanation, etc.
-2. *Topic specific info* e.g. general knowledge, frameworks, etc.
-3. *User dynamic information* e.g. interviewee's last interview session, user profile with information on his/her skills regarding the topic, etc.          
+1. *TASK DESCRIPTION* to understand what you have to do e.g. interview structure, task explanation, etc.
+2. *TOPIC INFORMATION* e.g. general knowledge, frameworks, etc.
+3. *SESSION SPECIFIC INFORMATION* e.g. interviewee's last interview session, user profile with information on his/her skills regarding the topic, etc.          
 3a. Sometimes this dynamic information also consists of feedback on the interview context you previously provided. This will be done by the "reviewer". 
 Use this to make a better/updated version of an interview context when presented.
 
 --------------------------------------------------------------------------------        
-*SYSTEM KNOWLEDGE*
-
-**TUTORIAL ON CREATION OF INTERVIEW CONTEXT**            
-To create a good interview context you need to do 3 analysis: 
-                    
+*TASK DESCRIPTION*
+            
+You are tasked to create an EXTENSIVE interview context document ~1500 words. You will get multiple sources of information which you use to do 3 analysis:             
 1. Sentiment analysis
 2. Conversation analysis       
 3. Profile analysis      
                
 
-**IN DEPTH INSTRUCTION FOR CREATING INTERVIEW CONTEXT**
+**In depth instructions per analysis**
             
 STEP 1: sentiment analysis
 
@@ -218,35 +214,42 @@ OMPREHENSIVE INTERVIEW CONTEXT GUIDELINES:
             
 
 ------------------------------------------------------------------------------------------------
-*TOPIC INFO*
+*TOPIC INFORMATION*
+Now that you understand what to do, here is information about the topic that is being interviewed about:
+
 {general_topic_info_full}
 
 
-*INFO ON FRAMEWORKS TO ANALYZE TOPIC (COMPANY PERSPECTIVE)*
+*Frameworks and themes used through which the topic is analyzed (company maturity assesment)*
 {general_framework_info_company}
 
 {framework_themes_company}
 
 
 
-*INFO ON FRAMEWORKS TO ANALYZE TOPIC (USER PERSPECTIVE)*
+*Frameworks and themes used through which the topic is analyzed (interviewee topic skills assesment)*
 {general_framework_info_user}
 
 {framework_themes_user}
 
-
-*Dynamic information*
-You will also get:            
-1. The current conversation history between the user and the interviewer.
-2. The specific user’s skill profile.
-3. The user's perspective on company details regarding the topic.
 """
     )
+def get_latest_message_content(messages_dict: dict[str, ChatMessage]) -> str:
+      """Get the content of the most recent ChatMessage from a dictionary."""
+      if not messages_dict:
+          return ""
+
+      # Find the message with the latest created_at timestamp
+      latest_message = max(messages_dict.values(), key=lambda msg: msg.created_at)
+      return latest_message.content
 
 
-async def add_the_users_info(graph_ctx: GraphRunContext[MultiAgentState, MultiAgentDeps]) -> str:
+async def add_session_dynamic_info(graph_ctx: GraphRunContext[MultiAgentState, MultiAgentDeps]) -> str:
     try:
         user_profile = graph_ctx.deps.user_profile
+        phase_indicator = get_latest_message_content(graph_ctx.state.latest_phase_prompt)
+        latest_MA_response = get_latest_message_content(graph_ctx.state.MA_response)
+        Latest_reviewer_response = get_latest_message_content(graph_ctx.state.reviewer_response)
         
         if user_profile:
             #### self provided info
@@ -259,25 +262,59 @@ async def add_the_users_info(graph_ctx: GraphRunContext[MultiAgentState, MultiAg
             
             
             
-            dynamic_system_prompt = f"""
+            session_specific_system_prompt_addition = f"""
+-------------------------------------------------------------------------------------
+Next to topic information as promised you also get *Session specific information*
 
-THIS IS THE USER PROVIDED INFORMATION ABOUT THE USER AND THE ORGANIZATION YOU ARE ASSESSING:
+*SESSION SPECIFIC INFORMATION*
+You get:            
+1. A phase indicator for your conversation analysis.
+2. The specific user’s skill profile.
+3. The user's perspective on company details regarding the topic.
 
 
-- **User Description**: {user_description}
+THIS IS THE PHASE INDICATOR FOR YOUR CONVERSATION ANALYSIS
+{phase_indicator}
 
-- **Company info**: {company_description}
+
+THIS IS INFORMATION ABOUT THE USER:
+- **User Description**: 
+{user_description}
+
+- **User's own topic skills and knowledge**: 
+{distilled_user_AIR_info}
 
 
-THIS IS THE GENERATED LONG-TERM MEMORY WITH INFORMATION ABOUT THE USER AND ORGANIZATION YOU ARE ASSESSING:
+THIS INFORMATION ABOUT TORGANIZATION YOU ARE ASSESSING:
+- **General company info**: 
+{company_description}
 
-- **User's own AI skills and AI readiness topic knowledge info**: {distilled_user_AIR_info}
+- **Interesting information about the maturity of the organization regarding the topic**: 
+{distilled_company_AIR_info}
 
-- **Interesting information about the state of the organizaton's AI readiness**: {distilled_company_AIR_info}
 
-Use this information to tailor your responses. Focus on delivering insights and suggestions that align with the user's technical expertise, their role responsibilities, and the context of their company. The goal is to guide them on AI readiness, adoption, and potential next steps.
+
+---------------------------------------------------------------------------
+Use the TOPIC INFO and SESSION SPECIFIC INFORMATION to create your EXTENSIVE interview context document ~1500 words. 
+Focus on connections between the user's technical expertise, their role responsibilities, the context of their company, and the conversation. 
+
+!!!!!!!!!!!!!!!!!! THIS IS VERY IMPORTANT  !!!!!!!!!!!:
+1. You are the Meta-Agent. You do NOT provide direct answers or solutions to user questions.
+2. If the user asks any question—no matter how specific—do NOT answer. 
+3. Instead, produce ONLY the “Interview Context,” which includes:
+   - Sentiment Analysis
+   - Conversation Analysis
+   - Profile Analysis
+
+If you see info below this means you failed your task previously:
+This was your previous attempt to create an interview context
+{latest_MA_response}
+
+This is the feecback you got
+{Latest_reviewer_response}
+
 """
-            return dynamic_system_prompt
+            return session_specific_system_prompt_addition
         else:
             return "No user profile found. Provide general AI readiness advice."
     
@@ -287,60 +324,21 @@ Use this information to tailor your responses. Focus on delivering insights and 
 
 
 def add_the_date() -> str:
-    return f"""The date is {datetime.now(timezone.utc)}.
-
-    !!!!!!!!!!!!!!!!!! THIS IS YOUR VERY IMPORTANT NON-ANSWER POLICY !!!!!!!!!!!:
-1. You are the Meta-Agent. You do NOT provide direct answers or solutions to user questions.
-2. If the user asks any question—no matter how specific—do NOT answer. 
-3. Instead, produce ONLY the “Interview Context,” which includes:
-   - Sentiment Analysis
-   - Conversation Analysis
-   - Profile Analysis
-4. The Interviewer will decide how to respond to the user’s question based on your Interview Context. You are NOT to supply any direct response or advice."""
+    return f"""The date is {datetime.now(timezone.utc)}."""
 
 
 
-async def update_meta_agent_user_prompt(graph_ctx: GraphRunContext) -> str:
+
+
+async def fetch_message_history(graph_ctx: GraphRunContext) -> str:
     """
     Constructs and returns the meta-agent prompt string using the internal conversation stored in 
     graph_ctx.state.internalconversation. The messages are sorted by their creation time and 
     formatted as "<role>: <content>".
     """
-    # Sort the conversation messages chronologically.
-    sorted_messages = sorted(
-        graph_ctx.state.internalconversation.values(), 
-        key=lambda m: m.created_at
-    )
-    # Build the prompt by formatting each message.
-    prompt_lines = [f"{msg.role}: {msg.content}" for msg in sorted_messages]
-    
-    return "\n\n".join(prompt_lines)
 
-
-
-
-###########################################################################
-#################### META-AGENT WORKFLOW FUNCTION #########################
-###########################################################################
-
-async def MetaAgent_workflow(graph_ctx: GraphRunContext) -> GraphRunContext:
-    """
-    Processes the interview, user, and organization AIR data to create an interview context using the provided meta-agent.
-
-    """
-    ##### FETCH AGENT
-    Meta_agent = graph_ctx.deps.meta_agent
-
-    ##### PREPARE INPUT AGENT
-    user_prompt = await update_meta_agent_user_prompt(graph_ctx) ### this function transforms the list of Chatmessage classes to a usable string
-
-    ##### prepare system prompt with user info 
-    dynamic_system_message = f"{static_system_prompt()}\n\n{await add_the_users_info(graph_ctx)}\n\n{add_the_date()}"
-
-    # append the user - Frits conversation history to the message history list
     message_history = []
-    
-
+    # Transform ChatMessage list to ModelRequest and ModelResponse format
     if graph_ctx.deps.conversation_history:
         # Optionally, sort by creation time if order matters
         sorted_history = sorted(
@@ -359,10 +357,34 @@ async def MetaAgent_workflow(graph_ctx: GraphRunContext) -> GraphRunContext:
             else:
                 logging.error("Unknown chat role: %s", chat.role)
 
+    return message_history
 
 
+
+
+###########################################################################
+#################### META-AGENT WORKFLOW FUNCTION #########################
+###########################################################################
+
+async def MetaAgent_workflow(graph_ctx: GraphRunContext) -> GraphRunContext:
+    """
+    Processes the interview, user, and organization AIR data to create an interview context using the provided meta-agent.
+    """
+
+    ##### FETCH AGENT
+    Meta_agent = graph_ctx.deps.meta_agent
+
+    ##### prepare system prompt with user info 
+    dynamic_system_message = f"{system_prompt()}\n\n{await add_session_dynamic_info(graph_ctx)}\n\n{add_the_date()}"
+
+    # append the user - Frits conversation history to the message history list
+    message_history= await fetch_message_history(graph_ctx)
+
+
+    
     # RUN THE META-AGENT USING THE GENERATED INPUT
-    llm_response = await Meta_agent.run(user_prompt=dynamic_system_message + user_prompt, message_history=message_history)
+    llm_response = await Meta_agent.run(user_prompt=dynamic_system_message, message_history=message_history)
+
 
 
     ##### SAVE ALL THE INFO OF THE RUN INSTANCE

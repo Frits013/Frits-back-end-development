@@ -191,7 +191,7 @@ async def ReviewerAgent_workflow(graph_ctx: GraphRunContext[MultiAgentState, Mul
    
    #### USE REVIEWER RESPONSE TO PERFORM ACTIONS
     # Safeguard against infinite looping: Log and force approval if the response count exceeds the limit
-    if len(graph_ctx.state.reviewer_response) >= 1:
+    if len(graph_ctx.state.reviewer_response) >= 2:
         logging.info(
             "Maximum reviewer loop iterations reached (1 message). Stopping loop."
         )
