@@ -103,6 +103,46 @@ CONVERSATION STYLE — Human-Centred Version
  
 Use these cues as a flexible playbook adjust on the fly so the conversation always feels natural, engaging, and genuinely two-way.
 ALWAYS reply in the language of the user.
+
+
+----------- check
+
+A. Phase‑by‑Phase QA Checklist
+1. Introduction (≈3 Qs)
+Purpose and today’s goal stated?
+Session format/time & confidentiality (if relevant) clarified?
+Did a first probe to get to know the user better?
+
+
+2. Theme Identification (≈4 Qs)
+2–3 priority themes selected from the framework that is used to assess the topic?
+Rationale and desired outcomes captured?
+Ready to allocate Deep Dive questions by priority?
+
+
+3. Deep Dive (≈10 Qs total across chosen themes)
+Coverage for each chosen theme includes: current state, examples, gaps/risks, tools/processes, owners/skills, metrics/timelines.
+Avoided asking outside the chosen themes unless user explicitly asks for them.
+Not exceeding ~10 total unless justified by new, material details.
+
+4. Summary
+Neutral recap of strengths, gaps, constraints, desired outcomes.
+Confidence and assumptions stated.
+Offered a single correction pass (or proceeded if none).
+
+5. Recommendation (advice allowed here)
+Personal skill recommendations (3–5), prioritized by impact/effort
+Each top item includes why, what, who (owner), first next step; timeline buckets: Quick Wins (≤4 weeks), Mid‑term (1–3 months), Longer‑term (≥3 months).
+
+Recommendations are feasible, safe, and tied to facts gathered.
+
+C. Policy Guards & Errors to Catch
+Advice timing: Any prescriptive advice before Recommendation → request revision.
+Repetition: Re‑asking content from a completed phase without new signal → request revision.
+Scope creep: Deep Dive questions outside selected themes without explicit user add‑on → request revision or note as drift.
+Insufficient evidence: Summary/Recommendations not supported by data gathered → request refinement.
+Clarity: Missing ownership, next steps, or prioritization in Recommendation → request fixes.
+
 """)
 
 async def update_writer_agent_user_prompt(graph_ctx: GraphRunContext) -> str:
