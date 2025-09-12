@@ -1,86 +1,168 @@
+# Mother company goal + daughter company goal TODO: Deze is het belangrijkste om nog up te daten
+interview_goal_definition = """The overarching research objective for Plato is to create a clear and shared understanding of where both subsidiaries stand today, and what capabilities they should build towards in 2030. 
+This includes mapping the current situation (IST) per theme across IGO and Compacon, defining the future capability-based target state (SOLL), and highlighting the most important gaps. The interviews, document reviews, and process analyses should together form a fact base for prioritization: where the most value can be created, where risks need to be addressed, and which actions should be treated as quick wins versus long-term programs. Ultimately, the goal is to align all parties on a common language and cadence for steering, reporting, and governance, so that strategic ambitions can be translated into operational reality. 
+Baseline (IST) per theme across IGO and Compacon: facts, bottlenecks, exceptions. 
+SOLL 2030 vision on capability level: what “good” looks like (without numeric targets), as a reference point for both subsidiaries. 
+Gap & prioritization: value/risk hotspots, quick wins and structural programs.
 
-# Mother company goal + daughter company goal
-interview_goal_definition = """
+IGO (subsidiary)
+For IGO, the interviews aim to uncover how customer value can be maximized beyond acquisition. We want to better understand retention and CLV opportunities, map where manual bottlenecks slow down the order–payment–ERP process, and identify which supplier API connections can bring the most immediate value. 
+In addition, the interviews will clarify how KPI ownership is currently distributed, and how decisions on priorities are taken, so we can design a more consistent rhythm of steering and accountability. 
+Which retention/CLV opportunities rank highest (use cases + missing data)? 
+Where are the manual pain points in the flow (order ↔ payment ↔ ERP) and how often do they occur? 
+Which supplier APIs deliver the fastest value and how do we measure supplier performance? 
+How is KPI ownership and rhythm currently structured (OKRs, MBR/QBR cadence)? 
 """
 
 
-general_topic_info_full = """ """
+general_topic_info_full = """
+From Inefficiency to a Data-Driven Vision
+
+Imagine a mid-sized e-commerce retailer with a complex supply chain. In its early days, each department operated in isolation – sales and marketing made decisions on gut instinct, operations dealt with frequent stockouts and overstocks, and supply chain managers reacted to issues rather than anticipating them. Data existed but was trapped in silos: customer data in one system, inventory data in another, supplier information in spreadsheets. The result was operational inefficiency – slow decisions, wasted effort, and missed opportunities to serve customers better. Recognizing these pain points, the leadership crafted a vision to transform into a data-driven, AI-enabled organization. This meant leveraging data to increase efficiency, automate processes, and make smarter decisions across sales, marketing, operations, and supply chain. It wasn’t just a tech upgrade; it was seen as a strategic necessity for survival and growth in a competitive market
+ccoconsulting.com
+. The journey from data chaos to an AI-powered enterprise would require orchestrating several intertwined themes – data initiatives, governance, technology, culture, ecosystems, and ethics – all working together.
+
+Aligning Data Initiatives with Business Value
+
+The first step on this journey was to focus on data initiatives that drive real business value. Rather than adopting AI for AI’s sake, the company identified key problems and opportunities where data could make a difference. For example, they launched a predictive analytics project to forecast product demand more accurately, aiming to reduce supply chain surprises. They also explored data-driven marketing, using customer purchase and browsing data to personalize promotions and improve sales conversion. Each initiative was chosen because it tied directly to a business goal – whether cutting costs in operations or boosting revenue in sales. In practice, this meant applying a “business value first” principle: every data or AI project needed to link to concrete KPIs and outcomes the business cared about
+compact.nl
+. For instance, the demand forecasting AI was measured by its impact on inventory turnover and stock-out rates, and the marketing analytics by its lift in conversion and customer retention.
+
+Importantly, these data initiatives were not run in a vacuum. The company set up cross-functional teams for each project – bringing together people from the business side and the tech side. A clear governance process was put in place to guide projects from idea to implementation and finally to measuring results
+compact.nl
+. Business owners were accountable for ensuring a project delivered value, while technical experts ensured the data and models were sound. This joint approach ensured that data initiatives addressed real needs and that their benefits could be tracked and verified in practice. It also avoided the trap of fragmented, one-off experiments. Many firms that dabble in isolated AI use cases find they end up with siloed solutions and duplicated efforts
+mhp.com
+. By contrast, our retailer pursued an overarching data strategy that connected business processes, technology, and people, ensuring that each initiative was part of a bigger puzzle and contributed to shared goals
+mhp.com
+. In short, data projects were aligned with business strategy, so that any efficiency gained or revenue uplift directly supported the company’s transformation to a value-driven, data-centric business.
+
+Governance, Organization, and Ethics: Building a Trustworthy Framework
+
+As data initiatives picked up steam, the company quickly realized that data is only as useful as it is trustworthy and well-managed. This brought the focus to governance and organization – essentially, putting the right rules and structures in place to manage data responsibly. The company established a data governance framework covering data quality, ownership, and security. They appointed data stewards for key domains like customer, product, and supplier data to ensure information was accurate, consistent, and up-to-date. Standard definitions were agreed upon for metrics (e.g. “What exactly counts as an ‘active customer’?), so that everyone from marketing to operations was speaking the same language. By creating a shared business glossary and metadata practices, they prevented the confusion that once arose when different departments had conflicting definitions for the same terms
+valiotti.com
+. Reliable, “single source of truth” data became the norm, replacing the old patchwork of spreadsheets.
+
+In terms of organization, the company structured its teams to support a data-driven way of working. They formed a central data analytics team to provide expertise in data engineering, analytics, and AI, but also embedded data analysts within business units to ensure domain knowledge was paired with technical skill. This hybrid operating model – a small central team setting standards and governance, with decentralised analysts in each department – provided consistency without creating bottlenecks
+valiotti.com
+. Clear roles and responsibilities meant everyone knew who was accountable for data at each stage, from collection to analysis, which streamlined initiatives and reduced turf wars.
+
+Critically, ethical and compliance considerations were baked into governance from day one. In the era of GDPR and increasing consumer concerns, the leadership knew that mishandling data could erode customer trust or even lead to legal penalties. They treated privacy regulations and ethical guidelines not as check-the-box compliance, but as core principles guiding the data strategy. In fact, forward-looking companies understand that ethical data practices have shifted from mere compliance requirements to a foundational element of successful data strategies
+datameaning.com
+. Our retailer set policies to ensure customer data was used transparently and only for its intended purpose, with robust consent and security measures in place. They implemented role-based data access controls and encryption to safeguard sensitive information, in line with regulations like GDPR
+valiotti.com
+. Moreover, an ethics committee reviewed AI use cases for potential biases or unfair impacts – for example, making sure an AI pricing algorithm wouldn’t inadvertently discriminate against certain customer groups. This emphasis on trust and accountability created a safe environment for innovation: employees and customers alike could feel confident that data was being handled responsibly. As a result, the data initiatives had a sturdy, trustworthy framework to stand on – the organization and governance backbone that ensured data was consistent, secure, and used in line with the company’s values and legal obligations. Without this, any short-term gains from analytics might have been unsustainable. With it, the company built a reputation as a responsible data citizen, which is invaluable for long-term success.
+
+Architecture and Ecosystems: Building the Data Backbone
+
+To support their ambitions, the company invested in a modern data architecture and technology backbone. Previously, useful data was scattered across a patchwork of legacy systems – the website had its own database of online orders, the warehouse had an inventory management system, marketing had an email campaign tool – none of which talked to each other. This made it difficult to get a complete picture of the business. The transformation effort therefore prioritized creating an integrated data platform. They chose a scalable cloud-based data warehouse to consolidate key data from sales, marketing, operations, and supply chain systems. Each night (and eventually in near-real-time), data pipelines would pull in transactions, inventory levels, website clickstreams, and more into this central repository. On top of this, they implemented user-friendly analytics tools so that managers and analysts could access and query the data easily. The guiding principle was to remove barriers and make data accessible: adopting self-service BI tools allowed non-technical staff – say a sales manager or a supply chain planner – to get insights on their own without always relying on IT
+valiotti.com
+.
+
+The impact of this unified architecture was dramatic. For the first time, teams could see a 360° view of the business. A marketing analyst could pull up a dashboard that combined web traffic data with inventory and sales data, revealing, for example, that a promotion was driving demand for a product that was about to go out of stock. Such insights enabled proactive decision-making (e.g., transferring stock to where it was needed or speeding up reordering from a supplier). Indeed, after consolidating their sources into one cloud data warehouse and deploying a suitable BI tool, the company found that any authorized employee could access a 360° customer view and other critical dashboards, breaking the old information barriers
+valiotti.com
+. This technical foundation also ensured performance and scalability – as data volumes grew and analyses got more complex, the cloud infrastructure could handle it, providing fast answers without choking on large datasets
+valiotti.com
+.
+
+Beyond internal integration, the company expanded its perspective to the wider data ecosystem. In a connected world, valuable data doesn’t only reside within one organization. The retailer began to integrate and share data with key partners in its supply chain and industry. For example, they set up data feeds with suppliers: sharing demand forecasts and inventory levels so that manufacturers could adjust production proactively, and in return receiving supplier production plans to anticipate any supply constraints. They also tapped into external data sources – pulling in weather data and social media trends to enrich their demand forecasting models (after all, a cold snap or a viral trend can spike demand for certain products). By looking beyond its own walls, the company was becoming part of a broader data ecosystem where information flows freely between stakeholders. This approach of opening up and exchanging data proved valuable: studies have shown that opening and sharing data can help companies increase revenue, reduce costs, and improve efficiency in operations
+theodi.org
+. In fact, in today’s competitive markets with complex supply chains, no company is an island – AI and analytics thrive on rich data, and often it’s too costly or impractical for one company to collect it all alone
+theodi.org
+. By collaborating with external partners, the retailer gained insight that it could never have obtained by itself (for instance, a logistics partner’s data on delivery times helped optimize customer shipments). In technical terms, this meant the architecture had to accommodate external data streams and ensure interoperability with others’ systems, but those investments paid off by creating a more resilient, insight-rich network of information.
+
+The synergy between architecture and ecosystem efforts also reinforced other areas of the transformation. A robust data platform improved data quality and consistency, which made governance easier and strengthened trust. Sharing data externally demanded strong governance and ethical standards (to address questions like data ownership and privacy across organizations), which the company had established. In turn, seeing data used in powerful ways via new tools encouraged employees to further embrace the data-driven culture. In essence, the architecture and ecosystem formed the circulatory system for the organization’s data and AI capabilities – pumping reliable data to every corner of the business and even beyond, so that all other functions (from AI models to daily decision-making) were well-fed with the information they needed.
+
+People and Culture: Empowering a Data-Driven Organization
+
+Even with great technology and processes, the transformation would have fallen flat without the people. The company understood that becoming truly data-driven was as much a cultural shift as a technical one. They needed to empower employees at all levels to use data in their day-to-day work, cultivate curiosity and analytical thinking, and reduce reliance on gut instinct or “the way we’ve always done it.” This started with a strong commitment from top leadership – executives consistently communicated the importance of data-backed decisions and led by example, discussing metrics and facts in meetings rather than only opinions. The company also invested in training and data literacy programs. Employees from the shop floor to senior managers attended workshops on basic analytics, interpretation of data, and even ethics and privacy. The goal was to ensure that all staff, not just data scientists, could find meaning in the numbers and derive actionable insights, as one report put it
+compact.nl
+. In practice, a customer service rep could read a dashboard on customer feedback trends and suggest improvements, or a supply chain planner could interpret a forecasting model’s output to adjust an ordering schedule. Building this widespread data literacy was crucial to making the data tools and platforms effective.
+
+Cultural change also involved rewriting old habits. Initially, there was resistance – some managers felt their experience might be sidelined by cold data, or they feared looking bad if data exposed problems in their domain. To address this, the company fostered an environment where experimentation and learning were encouraged. Small wins were celebrated: for example, when a warehouse team used data to reorganize storage and sped up fulfillment by 15%, it was publicized internally as a success story. These stories built positive momentum and showed others the tangible benefits of a data-driven approach. Management also aligned incentives to support the new culture – tying part of performance evaluations to how effectively employees used insights or shared data across teams, not just traditional performance metrics. This reinforced collaboration and broke down silos, because people now had a reason to work together and use data as a common ground.
+
+It’s important to note that technology alone can’t drive this kind of change – people do
+valiotti.com
+. In fact, many companies struggle with becoming data-driven not due to lack of technology, but due to human and organizational factors. Surveys have found that about 80% of organizations cite culture and process issues as the biggest barriers to adopting data-driven practices, whereas only a minority point to technology as the main issue
+valiotti.com
+. Our e-commerce retailer was mindful of this from the start. They tackled the human side by providing continuous support (like on-demand data coaching, an internal help desk for analytics questions, etc.) and by involving employees in the design of new data solutions. For example, when rolling out a new AI tool for inventory optimization, they included warehouse managers in the pilot tests to gather their feedback and build trust in the tool. Over time, these efforts built a genuine data-driven culture: employees at all levels began to instinctively turn to data when solving problems. Decisions like “how many of this item should we stock next month” or “which marketing channel is best for this product” were no longer guesses or solely past experience – they were informed by data models, A/B test results, and solid analysis. The mindset had shifted from “We think” to “Let’s check what the data shows”.
+
+Moreover, the culture emphasized ethical and responsible use of data as a norm, tying back to the governance and ethics framework. Employees understood why certain data couldn’t be used freely (like personal data without consent) and were encouraged to voice concerns if they spotted any misuse of analytics (for instance, if an AI recommendation seemed biased or unfair). In essence, the cultural transformation made data everyone’s business. With a workforce that is both data-literate and data-conscious, the organization ensured that all the fancy new tools and data pipelines actually translated into smarter decisions and innovative ideas on the ground. As one industry expert noted, the best technology or architecture means nothing without the people who use it, and conversely a willing culture isn’t enough without clear strategy and guidelines – success comes when both sides work in unison
+mhp.com
+.
+
+Conclusion: A Unified Path to Sustainable Data & AI Maturity
+
+The journey of this e-commerce company illustrates that achieving sustainable data and AI maturity is not about advancing one aspect in isolation, but about weaving all these elements into a cohesive fabric. Data initiatives and value creation provided the motive force – targeting inefficiencies and opportunities that deliver tangible results. But those initiatives thrived only because governance and organization provided a structured, trustworthy environment, defining how data is managed and who steers the ship. The architecture and technology formed the backbone that carried data to where it was needed, while connections to data ecosystems extended the company’s reach beyond its own walls, multiplying the available insights and enabling collaboration up and down the supply chain. Meanwhile, the heartbeat of the transformation was the people and culture – without a data-driven culture, even the best tools would sit idle or be misused. And through it all, compliance and ethics acted as the guardrails, ensuring that the pursuit of efficiency and automation never compromised customer trust or societal responsibilities.
+
+Each of the six themes reinforced the others. For example, clear governance and ethical standards increased people’s trust in data, making the culture more receptive. A strong data culture in turn made it easier to spot new high-value data initiatives (because employees were actively looking for data solutions to business problems). A well-designed technology architecture accelerated those initiatives and enabled new ecosystem partnerships by making data more shareable. And success in early projects fueled further cultural buy-in and justified ongoing investment in technology – creating a virtuous cycle. In summary, the organization learned that artificial intelligence and data analytics can only generate lasting value when strategic goals, technological infrastructure, and cultural integration are systematically aligned
+mhp.com
+. All these dimensions must work in concert, as an integrated whole, to truly transform a company’s operations and performance.
+
+For our mid-sized retailer, this unified approach paid off. Over time, they moved from reactive firefighting in their supply chain to proactive optimization – the AI demand forecasts and inventory models dramatically cut down excess stock and stockouts. Marketing campaigns became more targeted and effective, guided by customer analytics. Sales teams spent less time guessing which leads to pursue because data helped prioritize the best opportunities. Employees across departments started collaborating more, using common dashboards and sharing data-driven insights, rather than each protecting their own turf. The company even discovered new business models, such as offering data-driven services to their suppliers (e.g. sharing consumer trend data) creating additional value in the ecosystem. What began as a fight against operational inefficiency evolved into a value-driven, AI-enabled enterprise, where efficiency gains and innovative services continuously propel the business forward. By logically weaving together data initiatives, governance, technology, culture, ecosystems, and ethics, the company built capabilities that not only solved immediate problems but also positioned it for future growth in a data-centric world. This cohesive, strategic transformation logic is what any organization – e-commerce, manufacturing, finance, or otherwise – can emulate to move up the data maturity curve and secure their place in the AI-driven future. """
 
 
 
+general_topic_info_summary = """
+Why this matters now. Data and AI turn fragmented operations into coordinated, learning systems. For a mid‑sized e‑commerce with supply‑chain complexity, the prize is fewer stockouts/overstock, faster cycles, and growth from better targeting and service.
 
-general_topic_info_summary = """ """
+From use cases to value (Data initiatives & value creation). Start with business outcomes, not algorithms: define a portfolio of use cases tied to P&L and customer outcomes (e.g., demand forecasting to cut working capital; next‑best‑offer to lift CLV). Treat each initiative as a mini‑product with an owner, clear KPIs, and an iterate‑to‑value delivery rhythm.
+
+Trust by design (Governance & organization + Compliance & ethics). Value only materializes if data is trusted and lawful. Establish ownership (who stewards customer, product, supplier data), common definitions, and quality thresholds. Bake in privacy‑by‑design, access controls, and AI ethics (fairness, explainability, human oversight). Create a light‑weight governance body that prioritizes data issues, removes blockers, and aligns funding with value.
+
+The backbone (Architecture & technology). Consolidate critical data (sales, inventory, logistics, marketing) into a scalable platform (warehouse/lakehouse) with reliable pipelines and metadata. Enable real‑time where it matters (orders, inventory signals) and batch where it doesn’t. Provide self‑service BI for most users and an ML workbench/MLOps for advanced teams. Design for interoperability via APIs so data flows across systems and partners.
+
+Extend the lens (Data ecosystems). Many optimizations need partner data. Set up reciprocal data sharing with suppliers and logistics (e.g., forecasts ↔ capacity/ETA), and use external signals (weather, trends) to enrich models. Use agreements and technical controls to share only what’s needed while protecting IP and privacy.
+
+Make it human (Data‑driven employees & culture). Culture unlocks everything: leaders role‑model evidence‑based decisions; teams are trained in data literacy; incentives reward using insights, not just outcomes. Celebrate quick wins (e.g., a 10–15% fulfillment time reduction from layout changes driven by data) to build momentum. Position “data champions” in each function to drive adoption.
+
+How it comes together (for Plato).
+
+Quarter‑turn improvements: a handful of high‑impact use cases (forecasting, replenishment, personalization, service triage) deliver early savings and growth.
+
+Systematize: governance, shared definitions, and a unified platform reduce rework and accelerate every new use case.
+
+Scale: partner data and automation expand impact across the chain; KPIs (retention, CLV, O2D lead time, automation rate, data quality) keep value visible and accountable.
+
+This integrated approach ensures the six themes reinforce each other: governance and ethics build trust; architecture and ecosystems widen and speed the data supply; culture turns insight into action; and use‑case portfolios convert it all into measurable value. """
 
 
 
 ## 
 general_framework_info_company = """
-SMALL CONTENT EXPLANATION
-Why AI Readiness Matters
-Many organizations are uncertain about how AI will impact their operations, workforce, and strategic goals.
-An AI readiness assessment helps identify key gaps—such as leadership alignment, workforce skill levels, data infrastructure, organizational culture, and governance/ethical considerations—before undertaking large-scale AI initiatives.
-By better understanding these gaps, the organization can manage concerns, mitigate risks, and plan targeted improvements to successfully adopt AI technologies."""
+At its core, the framework is a practical diagnostic and steering tool. It helps leaders see how well their company converts data into business value, where bottlenecks sit (people, process, or technology), and what to tackle next. It does this by looking across six mutually reinforcing dimensions that together determine whether data and AI are strategic assets or scattered experiments.
+
+First, Data initiatives & value tests whether projects are tied to strategy and measured by outcomes—not activity. It distinguishes creating value (improving decisions, processes, and experiences with data) from realizing value (capturing those improvements in P&L or mission results). Second, Governance & organization checks whether clear roles, standards, and decision rights exist so data is managed as an enterprise asset. This is where ownership, quality, security, and privacy are defined, and where leadership (e.g., a CDO function) aligns efforts across business units. Third, Architecture & technology examines the technical backbone—platforms, pipelines, models, and integration patterns—that make data reliable, accessible, and reusable. Modern, scalable architectures turn raw data into shared, composable building blocks for analytics and AI.
+
+Fourth, Data-driven employees & culture gauges whether people trust and use data to make decisions. It looks for literacy, incentive alignment, and leadership behaviors that normalize evidence-based debate. Fifth, (Data) ecosystems assesses how well the company collaborates with partners to exchange data securely and fairly—unlocking insights and business models no single firm can achieve alone. Finally, Compliance & ethics ensures AI and data use are lawful, transparent, fair, and accountable—embedding trustworthy practices that protect stakeholders and sustain permission to operate.
+Why it matters: maturity across these dimensions correlates with repeatable value from AI, faster time-to-impact, and reduced risk. Treating them as a system prevents local optimizations (e.g., buying tools without culture change, or piloting models without governance). The framework provides a common language for executives, data teams, and frontline leaders to prioritize investments, sequence change, and track progress. In practice, it underpins three outcomes: (1) a targeted roadmap—what to fix, build, or scale next; (2) measurable impact—linking initiatives to KPIs and value realization; and (3) resilient trust—meeting regulatory expectations while earning stakeholder confidence. Used regularly, the framework moves AI from sporadic pilots to an operating muscle that compounds advantage.
+"""
 
 framework_themes_company = """
-COMPANY AI READINESS DIMENSIONS
+**1. Data initiatives & value** 
+Definition and Concept: Data initiatives refer to projects and programs that leverage data (and analytics or AI) to drive business outcomes, while value creation is the benefit or improvement these initiatives deliver. In academic and industry terms, creating value from data means using data to improve processes or services, leading to gains in efficiency, productivity, and customer satisfactionmitsloan.mit.edu. It’s crucial to distinguish value creation (using data to generate benefits) from value realization or monetization (actually capturing those benefits in financial terms)mitsloan.mit.edu. Essentially, data initiatives should not be pursued for their own sake – they must align with strategic goals and be measured by the value they produce. 
 
-1. "Management Support":  
-   The extent to which leadership actively enables AI adoption through strategic alignment, resource allocation, and clear vision. This includes formal elements—such as documented strategies, funding, and sponsored initiatives—and informal aspects, like how supported employees feel when pursuing AI ideas. Effective management support means leadership not only encourages AI experimentation but also guides employees by articulating how AI fits into the organization’s future.
+  
+**2. Governance & organization**  
+Definition and Concept: Data governance encompasses the policies, processes, and organizational roles that ensure data is managed as a valuable asset. It is “the exercise of authority and control over the management of data throughout its lifecycle”, according to the Data Management Association (DAMA)quanam.com. In practice, governance establishes who is responsible for data (ownership and stewardship), what standards apply (quality, security, privacy), and how decisions about data are made. A proper data governance framework improves data quality, security, and usability, thereby enabling better decision-making and compliancequanam.com. Organization in this context refers to the structural aspect – e.g. having a data governance council, a Chief Data Officer or equivalent leadership, and distributed roles (data owners, stewards, analysts) across the company to operationalize governance. 
 
-2. "AI Literacy":  
-   The general level of understanding within the organization about what AI is, how it works, and how it affects business, people, and society. It includes foundational awareness of AI technologies, their capabilities and limitations, and the ability to engage with AI-related discussions. Ethical considerations—such as fairness, bias, and transparency—are a key part of AI literacy, helping employees recognize both the potential and the risks of AI systems.
 
-3. "AI Talent":  
-   The organization’s ability to develop, use, and maintain AI systems through skilled individuals and teams. This includes technical experts who can build custom solutions, as well as employees who can effectively apply off-the-shelf AI tools. It also involves the ability to collaborate with domain experts to create relevant, high-impact applications. A strong AI talent base includes not just current skills, but also the organization’s capacity to attract, develop, and scale these capabilities over time. While closely linked to management support, AI talent reflects the actual presence and scalability of AI skills within the organization.
+**3. Architecture & technology**  
+Definition and Concept: This theme covers the technical backbone required for data and AI. Data architecture refers to the design of data storage, integration, and flow – essentially how data systems are structured to collect, manage, and provide data. It includes data platforms (data warehouses, lakes), pipelines, and tools that enable analytics. A well-designed architecture encompasses everything from databases and cloud infrastructure to data models and integration APIs. Crucially, architecture is not just an IT concern – when done right, “data architecture isn’t just a technical structure: it’s a strategic capability that turns raw data into a reusable asset.”ibm.com In other words, the technology and architecture should be aligned to business needs, making data accessible and reusable for various analytics. Modern architectures often emphasize scalability (e.g. cloud services), real-time data processing, and modular components (like microservices or data fabrics). 
 
-4. "Employee Acceptance of AI":  
-   The emotional and psychological readiness of employees to trust and work with AI systems. This includes their fears, perceived threats—such as job loss—and even potential resistance driven by internal politics. A low level of acceptance can silently undermine AI efforts, regardless of technical capability. Acceptance is shaped by the organization’s culture, leadership messaging, and the extent to which employees feel informed, respected, and secure during AI-related changes.
+ 
+**4. Data-driven employees & culture**  
+Definition and Concept: A data-driven culture is one where employee mindset and the company’s norms prioritize data-based decision-making over intuition or hierarchy. In such a culture, employees at all levels seek out data and analysis to inform their actions, and they trust and value what the data says. Building this culture often involves increasing data literacy (comfort with understanding and analyzing data) among staff and establishing behaviors like questioning assertions that aren’t backed by evidence. For example, at Intel, employees are known to regularly ask colleagues to “provide data to support a statement or decision”, reflecting a norm that decisions should be evidence-basedsas.com. A data-driven employee is not necessarily a data scientist, but someone who understands the importance of data, knows how to interpret key metrics, and is willing to change course based on what the data reveals. Achieving this typically requires strong leadership endorsement, training programs, and aligning incentives (rewarding data-informed decisions). Academically, numerous surveys have found that cultural factors – not technology – are the biggest barrier to becoming data-driven. In fact, over 90% of executives cite culture and people challenges as the key obstacle to adopting a data-driven approachcloverdx.com. 
 
-5. "Experimentation Culture":  
-   The extent to which the organization encourages and enables employees across roles to explore and test AI ideas in a safe, low-risk environment. It reflects both mindset and structure—like dedicated time, sandbox environments, or budgets—that support learning through trial and error. A strong experimentation culture acts as a bridge between spotting AI opportunities and building practical solutions, and it includes capturing and sharing lessons so that knowledge is retained across the organization.
 
-6. AI Governance and Risk Control:
-    The centralized strategy, structures, and processes that ensure AI is developed and used responsibly and safely across the organization. This includes ethical guidelines, legal compliance, model documentation, validation, and transparency practices. A key part of governance is risk control: the classification of AI system risks—based on internal policies and external regulations—and the implementation of mitigation and damage control procedures for when errors occur. While development teams carry primary responsibility for building fair and secure AI, frontline users also contribute by monitoring real-world impact and providing feedback. Effective AI governance and risk control aim to prevent harm and align AI use with both organizational values and broader societal responsibilities.
+**5. (Data) Ecosystems**  
+Definition and Concept: A data ecosystem is the network of partners, platforms, and stakeholders that collaboratively share and utilize data. Unlike an individual company working in isolation, an ecosystem involves multiple organizations exchanging data to achieve mutual benefits or a common goal. The Capgemini Research Institute defines a data ecosystem as “a partnership between multiple institutions to share and manage data to create new value that would not have been possible in the previous, siloed system”capgemini.com. In such ecosystems, data sharing is typically based on a mutual value exchange – each participant both contributes data and gains value from others’ data, making the whole greater than the sum of partscapgemini.com. Data ecosystems can take many forms: industry consortia (e.g. banks sharing fraud data to improve security), supply chain collaborations (suppliers and retailers sharing inventory and forecast data), or even open-data platforms where companies and governments release data for public use. Key to any ecosystem is trust, governance, and often a technological platform to enable secure data exchange. Often, APIs or data marketplaces are used to facilitate these exchanges under agreed rules. By bringing together data from different sources, ecosystems can unlock insights (and business models) that a single company could not achieve alone. 
 
-7. "Business Use Case":  
-   The organization’s ability to continuously identify, assess, and communicate valuable AI opportunities that align with its goals. This includes scanning for where AI can add impact, creating and maintaining a clear list of use cases, and making them understandable and quantifiable for business investment decisions. It also means engaging the right people—especially domain experts—so AI opportunities are recognized and acted upon across the organization.
 
-8. "Data Quality":  
-   The overall trustworthiness, sufficiency, and usability of the data used in AI systems, including its accuracy, completeness, consistency, and volume. High-quality data is not only clean and well-structured—it’s also available in enough quantity to support meaningful AI outcomes. Strong data quality depends on having clear ownership, validation processes, and ongoing monitoring, along with a mindset of continuous improvement. Organizations should treat incoming data critically, recognizing that “trash in means trash out,” and actively invest in improving the data feeding into AI models and applications. A solid foundation of reference data—like a single source of truth, standardized formats, and secure handling of sensitive information—ensures data remains usable, compliant, and consistent across the organization.
-
-9. "Data Infrastructure":  
-   The underlying technical systems that securely store, organize, and make data accessible for both humans and AI systems. A strong data infrastructure offers sufficient storage capacity, is adaptable to changing needs, and makes it easy to input, retrieve, and use data across the organization. It ensures data can flow reliably between sources, tools, and users, while maintaining high standards for security, availability, and compliance. Effective infrastructure is a foundation for scalable and responsible AI development.
-
-10. "Machine Learning (ML) Infrastructure":  
-   The technical resources available to support the training, deployment, and operation of AI models. This includes access to sufficient computing power—such as GPUs, TPUs, or scalable cloud environments—as well as storage and processing capacity to handle large datasets and model training. Strong ML infrastructure ensures that AI teams are not limited by hardware constraints and can efficiently run experiments, fine-tune models, and deploy them into production. It provides the foundation needed for advanced AI capabilities to scale.
-
+**6. Compliance & ethics**
+Definition and Concept: This theme addresses the responsible and lawful use of data and AI. Compliance refers to adhering to all relevant laws, regulations, and policies – for a data-driven company, this typically includes data protection/privacy laws (like GDPR, CCPA), industry-specific regulations (if any), and emerging AI regulations or standards. Ethics in data and AI goes beyond legal requirements to encompass the moral principles guiding how data is collected, analyzed, and applied. Ethical considerations include ensuring fairness (AI should not illegally discriminate or perpetuate bias), transparency (clear communication about AI decisions or data use), accountability (mechanisms to correct or mitigate harm from AI outcomes), and respect for privacy and human rights. Essentially, data/AI ethics ask: “Just because we can do something with data or AI, should we?” A useful way to frame it is “trustworthy AI” – systems that stakeholders (customers, employees, society) can trust because they are developed and used responsibly. According to the EU’s guidelines for Trustworthy AI, key requirements include things like human oversight, technical robustness, privacy, non-discrimination, and societal benefittrustarc.com. Many organizations create internal ethics charters or committees to oversee AI use. It’s also worth noting that treating ethics as a core part of strategy (and not merely a compliance checklist) is increasingly seen as best practice: businesses must align AI ethics with data privacy laws to foster trust, reduce legal risks, and maintain compliancetrustarc.com. In other words, doing the right thing ethically also supports legal compliance and sustains the trust of customers and partners. 
 """
 
 
 general_framework_info_user = """   """
 
-framework_themes_user = """
-USER AI READINESS DIMENSIONS
-
-- "TK" (AI Technology Knowledge):  
-  Knowledge of what makes AI technology distinct and its role in human-AI collaboration and interaction.
-
-- "HK" (Human Actors in AI Knowledge):  
-  Knowledge of the role of human actors in human-AI collaboration and interaction.
-
-- "IK" (AI Input Knowledge):  
-  Knowledge of what AI input is and how humans should use it.
-
-- "PK" (AI Processing Knowledge):  
-  Knowledge of how AI processes information and the effects it has on humans.
-
-- "OK" (AI Output Knowledge):  
-  Knowledge of what AI output is and how humans should use it.
-
-- "UE" (AI Usage Experience):  
-  Experience interacting with AI.
-
-- "DE" (AI Design Experience):  
-  Experience designing and setting up AI.
-  
-"""
+framework_themes_user = """   """
