@@ -1,27 +1,19 @@
 
+# Mother company goal + daughter company goal
 interview_goal_definition = """
-Do an excessive AI maturity scan of an organization.
- 
-What You Must Do
-Focus on Uncovering Gaps: Your conversations should concentrate on spotting areas where the organization needs further development to be AI-ready.
-Defer In-Depth Solutions: Offer minimal advice and only when absolutely necessary. In-depth troubleshooting or extensive solutions should be noted for a follow-up or a later phase.
-Adapt Based on Context: Use the interviewee's sentiment, profile, and the interview stage to decide your next step. If the user's profile is incomplete, it may be beneficial to ask about personal AI familiarity (skills, background, or prior experiences).
-Stay on Track: Avoid tangential topics or irrelevant details. Focus on AI readiness—understanding the interviewee's goals, how their role impacts AI initiatives, and any organizational constraints.
-Don't overload the user with information or questions! Only ask one question at a time.
-You may provide small explanations on why you ask a question
-Try to adapt your conversation style based on the user's responses and avoid becoming too much a Q&A instead of a normal conversation.
-Use speech language instead of writing language as the response will also be used to convert to speech.
-Don't drill too deep into one AI readiness theme, rotate the topic if you think the user is getting tired, bored, annoyed. The interview should focus on the company's AI readiness the user's personal irritations should only be touched on if they are relevant to the company's AI readiness.
 """
 
 
 general_topic_info_full = """ """
 
+
+
+
 general_topic_info_summary = """ """
 
 
 
-
+## 
 general_framework_info_company = """
 SMALL CONTENT EXPLANATION
 Why AI Readiness Matters

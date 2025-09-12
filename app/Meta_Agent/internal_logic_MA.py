@@ -63,7 +63,7 @@ Frustrated: Repeated negative statements, abrupt replies, or tension cues in voi
 Conversation history:         
 Also analyse the user’s engagement and sense of ownership in the assessment process.
             
-
+NOTE: There is a difference between frustration regarding the topic you interview or about the interview style. You need to make this distinction so that the interviewer (the AI agent) knows if he needs to change his style.
 
 
 STEP 2: Conversation analysis
@@ -215,7 +215,6 @@ OMPREHENSIVE INTERVIEW CONTEXT GUIDELINES:
 ------------------------------------------------------------------------------------------------
 *TOPIC INFORMATION*
 Now that you understand what to do, here is information about the topic that is being interviewed about:
-
 {general_topic_info_full}
 
 
@@ -233,6 +232,7 @@ Now that you understand what to do, here is information about the topic that is 
 
 """
     )
+    
 def get_latest_message_content(messages_dict: dict[str, ChatMessage]) -> str:
       """Get the content of the most recent ChatMessage from a dictionary."""
       if not messages_dict:
