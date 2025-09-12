@@ -197,7 +197,7 @@ async def ReviewerAgent_workflow(graph_ctx: GraphRunContext[MultiAgentState, Mul
    
     
     #### GENERATE THE FEEDBACK
-    reviewer_info_feedback = await reviewer_agent.run(user_prompt=internal_conv_as_string, message_history=system_prompt_part, model_settings={'temperature': 0.0} ) 
+    reviewer_info_feedback = await reviewer_agent.run(user_prompt=internal_conv_as_string, message_history=system_prompt_part) 
     
 
     #### SAVE THE FEEDBACK IN THE RIGHT CLASS OBJECTS AND APPROVE OR REJECT
